@@ -1,0 +1,81 @@
+@if(isRender){
+<section class="pt-5">
+ <div class="container-fluid">
+  <owl-carousel-o [options]="StaticOptionsCat">
+    <ng-template carouselSlide><img src="./assets/images/img1.avif" class="w-100"  style="height:300px;" alt="slider-1"></ng-template>  
+    <ng-template carouselSlide><img src="./assets/images/img2.avif" class="w-100"  style="height:300px;" alt="slider-2"></ng-template>  
+    <ng-template carouselSlide><img src="./assets/images/img3.avif" class="w-100"  style="height:300px;" alt="slider-3"></ng-template>  
+  </owl-carousel-o>
+</div>
+</section>
+
+<section class="my-3">
+  <div class="container">
+    <h1 class="fw-bold py-3">{{"header.Categories"|translate}}</h1>
+    <owl-carousel-o [options]="customOptionsCat">
+
+      @for (cat of CategoriesData; track $index) {
+        <ng-template carouselSlide>
+          <div [routerLink]="['/Categoriedetails',cat._id]" class="cursor-pointer">
+          <img [src]="cat.image" [alt]="cat.name" class="w-100" style="height: 230px;">
+          <h4>{{cat.name}}</h4>
+        </div>
+      </ng-template>
+      
+    }
+  </owl-carousel-o>
+  </div>
+</section>
+}
+<section>
+  <div class="container">
+
+    <div class="row rounded-3 my-3 gy-3">
+     @if(isRender){
+      <input  [(ngModel)]="text"  type="text"placeholder="Search By Name" class="form-control w-75 mx-auto my-3 p-2" id="">
+      <h1 class="fw-bold py-3">{{"header.Popular Products"|translate}}</h1>
+     }
+      @for (product of ProductsData.slice(0,12)|search:text;track product._id;) 
+      {
+        <div class="col-lg-3 col-md-6 col-12">
+            <div class="card product position-relative">
+              <span (click)="AddToWishList(product._id)">
+                <i [ngClass]="{
+                  'fa fa-solid fa-heart-circle-xmark': WishListId.includes(product._id),
+                  'fa-solid fa-heart-circle-plus': WishListId.includes(product._id)==false
+                }"
+                class="img50 top-0 end-0 pe-2 pt-1 fs-2 cursor-pointer position-absolute">
+             </i>
+             
+            </span>
+              <div [routerLink]="['/details',product.id]">
+                <img [src]="product.imageCover" class="w-100 card-img-top" [alt]="product.category.name">
+                <div class="cart-title px-2">
+                <h2 class="h5 text-main fw-bold">{{product.category.name}}</h2>
+                <h3 class="h6">{{product.title.split(" ",2).join(" ")}}</h3>
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <span class="fw-bold fs-5">{{product.price}} EGP</span>
+                  </div>
+                  <div>
+                    @for(item of [1,2,3,4,5].slice(0,product.ratingsAverage);track $index)
+                    {
+                       <i class="fa fa-star rating-color fs-5"></i>
+                    }
+                    <span class="fw-bold fs-5">{{product.ratingsAverage}}</span>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="py-2 mx-2">
+                <button class="btn btn-outline-dark   w-100" (click)="AddToCartFunc(product._id)">{{"header.+Add To Card"|translate}}</button>
+              </div>
+            </div>
+        
+        </div>
+      }
+      
+      
+    </div>
+  </div>
+</section>

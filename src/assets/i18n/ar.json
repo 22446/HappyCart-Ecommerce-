@@ -1,0 +1,128 @@
+{
+    "nav":{
+        "Home":"الرئيسيه", 
+        "Products":"المنتجات", 
+        "Categories":"الفئات", 
+        "Brands":"الموديلات", 
+        "language":"اللغه",
+        "LogOut":"تسجيل الخروج",
+         "Login":"تسجيل دخول",
+         "Register":"انشاء حساب",
+         "Wish List": "قائمة الرغبات"
+    },
+    
+   "header":{ 
+    "Categories": "الفئات",
+    "Popular Products":"المنتجات الشائعه",
+    "+Add To Card":"اضف الى العربه+",
+    "All Products":"جميع المنتجات"
+   },
+  
+  "cart": {
+    "Image": "الصورة",
+    "Name": "الأسم",
+    "Price": "السعر",
+    "Quantity": "العدد",
+    "Delete": "حذف",
+    "Check Out":"الدفع",
+    "SHOP CART":"السله",
+    "Total Price:":":اجمالي الحساب",
+    "Clear All":"حذف السله"
+
+  },
+  "categ":{
+    "All Category":"جميع الفئات"
+  },
+  "brand":{
+    "All Brands":"جميع الموديلات"
+  },
+  "brandDet":{
+    "Products":"منتجات"
+  }
+  ,"Login":{
+    "shop with us.":"تسوق معنا الان",
+    "Dont Have an account? Sign Up now.":"ليس لدك حساب؟ انشئ الان",
+    "SIGN UP":"انشاء حساب",
+    "LOGIN NOW":"تسجيل دخول",
+    "email:":"الايميل:",
+    "Email is required":"الايميل مطلوب",
+    "Enter Valid Email":"الايميل غير صحيح",
+    "Password:":"كلمه المرور",
+    "password is required":"كلمه المرور مطلوبه",
+    "password must start with upperCase then from 6 to more any chars":"كلمه المرور يجب ان تبدا بحرف كبير و 6 احرف بعدها او اكثر",
+    "Forget Password":"هل نسيت كلمه المرور",
+    "Login":"تسجيل دخول"
+
+  },
+  "register": {
+    "name:":"الاسم:",
+    "Join our community, shop with us.": "انضم إلى مجتمعنا، تسوق معنا.",
+    "Have an account? Login now.": "هل لديك حساب؟ سجل دخولك الآن.",
+    "Login": "تسجيل الدخول",
+    "Create Account": "إنشاء حساب",
+    "Name is required": "الاسم مطلوب",
+    "Name Should be more than or equal 3 chars": "يجب أن يكون الاسم أكثر من أو يساوي 3 أحرف",
+    "Name Should be less than or equal 20 chars": "يجب أن يكون الاسم أقل من أو يساوي 20 حرفًا",
+    "email:": "البريد الإلكتروني:",
+    "password is required":"كلمه المرور مطلوبه",
+    "Email is required": "البريد الإلكتروني مطلوب",
+    "Enter Valid Email": "أدخل بريدًا إلكترونيًا صالحًا",
+    "Password:": "كلمة المرور:",
+    "password must start with upperCase then from 6 to more any chars": "يجب أن تبدأ كلمة المرور بحرف كبير ثم من 6 أحرف أو أكثر",
+    "rePassword:": "إعادة كلمة المرور:",
+    "Password confirmation is incorrect": "تأكيد كلمة المرور غير صحيح",
+    "Phone:": "الهاتف:",
+    "phone is required": "رقم الهاتف مطلوب",
+    "accept only egypt phone numbers": "يقبل أرقام الهواتف المصرية فقط",
+    "SIGN UP": "انشاء الحساب"
+  },
+  "forget": {
+    "WE WILL SEND YOU A CODE TO THIS EMAIL": "سنرسل لك رمزًا إلى هذا البريد الإلكتروني",
+    "Forget Password": "نسيت كلمة المرور",
+    "email:": "البريد الإلكتروني:",
+    "Email is required": "البريد الإلكتروني مطلوب",
+    "Enter Valid Email": "أدخل بريدًا إلكترونيًا صالحًا",
+    "Send Email": "أرسل البريد الإلكتروني",
+    "VERIFY CODE": "تحقق من الرمز",
+    "Code:": "الرمز:",
+    "resetCode is required": "رمز إعادة التعيين مطلوب",
+    "Enter Valid resetCode": "أدخل رمز إعادة تعيين صالح",
+    "Verify": "تحقق",
+    "ENTER NEW PASSWORD": "أدخل كلمة مرور جديدة",
+    "Email:": "البريد الإلكتروني:",
+    "Password:": "كلمة المرور:",
+    "password is required": "كلمة المرور مطلوبة",
+    "password must start with upperCase then from 6 to more any chars": "يجب أن تبدأ كلمة المرور بحرف كبير ثم تليها من 6 أحرف أو أكثر",
+    "Submit": "إرسال"
+  }
+  ,"WishList": {
+    "Your Wish List": "قائمة رغباتك",
+    "Your Wish List Is Empty": "قائمة رغباتك فارغة",
+    "Your Cart Is Empty":" عربه التسوق فارغه" ,
+    "Add Now": " أضف الآن " 
+  },
+  "catg": {
+        "Sorry there's no Products right now in this category": "عذرًا، لا توجد منتجات في هذه الفئه حاليًا",
+        "the only Category that have products right now is (Women'sFashon and Men'sFashon and Electronics You can check on them)": "الفئات الوحيدة التي تحتوي على منتجات حاليًا هي (أزياء النساء وأزياء الرجال والإلكترونيات، يمكنك التحقق منها)",
+        "Back To Categories": "العودة إلى الفئات",
+        "Back To Products":"الذهاب الى المنتجات"
+    },
+    
+      "details": {
+          "Personal Details": "البيانات الشخصية",
+          "Address Details:": "تفاصيل العنوان:",
+          "details is required": "البيانات مطلوبة",
+          "Enter Valid details": "أدخل بيانات صحيحة",
+          "phone is required": "رقم الهاتف مطلوب",
+          "City :": "المدينة:",
+          "city is required": "المدينة مطلوبة",
+          "Place Order": "إرسال الطلب",
+          "phone:":"الهاتف :",
+          "Back To Top ":"العوده الى الاعلى",
+          "Payment partners":"شركاؤنا في الدفع",
+          "© 2024 HappyCart. All Rights Reserved":"© 2024 عربة السعادة. جميع الحقوق محفوظة"
+      }
+  
+  
+    
+}

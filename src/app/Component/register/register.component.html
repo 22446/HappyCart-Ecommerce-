@@ -1,0 +1,126 @@
+<section class="rounded-4 shadow  my-3 mx-auto">
+ 
+    <div class="row">
+        <div class="col-lg-4 d-none  d-lg-flex align-items-center justify-content-center flex-column  bg-dark text-white ">
+            <h1 class="fw-bolder">{{"register.Join our community, shop with us."|translate}}</h1>
+            <h6 class="fw-light pt-3 pb-1" >{{"register.Have an account? Login now."|translate}}</h6>
+           <button routerLink="/login" type="submit" class="btn btn-main"> <a class="nav-link btn btn-outlet-white cursor-pointer"  routerLinkActive="btn-main">{{"register.Login"|translate}}</a></button>
+        </div>
+        <div class="col-lg-8 col-12">
+    <form [formGroup]="register" class="p-3" (ngSubmit)="RegisterSubmit()">
+        <h1 class="h2 my-2 text-center">{{"register.Create Account"|translate}}</h1>
+        <div class="my-2">
+        <label for="name">{{"register.name:"|translate}}</label>
+        <input [ngClass]="{
+            'is-valid': !register.get('name')?.errors&&register.get('name')?.touched,
+            'is-invalid':register.get('name')?.errors&&register.get('name')?.touched
+        }" formControlName="name" type="text"id="name" class="form-control p-2">
+        @if(register.get('name')?.errors&&(register.get('name')?.touched||register.get('name')?.dirty)){
+        <div>
+            <div class="alert alert-danger">
+                @if(register.get("name")?.getError("required")){
+                <p class="p-0 m-0">{{"register.Name is required"|translate}}</p>
+                }@else if (register.get("name")?.getError("minlength")) {
+                <p class="p-0 m-0">{{"register.Name Should be more than or equal  3 chars"|translate}}</p>
+                }
+                @else if (register.get("name")?.getError("maxlength")) {
+                    <p class="p-0 m-0">{{"register.Name Should be less than or equal  20 chars"|translate}}</p>
+                }
+               
+            </div> 
+        </div>
+         }
+        </div>
+            <div class="my-2">
+                <label for="name">{{"register.email:"|translate}}</label>
+                <input [ngClass]="{
+                    'is-valid': !register.get('email')?.errors&&register.get('email')?.touched,
+                    'is-invalid':register.get('email')?.errors&&register.get('email')?.touched
+                }"
+                
+                formControlName="email" type="email"id="email" class="form-control p-2">
+                @if(register.get('email')?.errors&&(register.get('email')?.touched||register.get('email')?.dirty)){
+                <div class="alert alert-danger">
+                    @if(register.get("email")?.getError("required")){
+                    <p class="p-0 m-0">{{"register.Email is required"|translate}}</p>
+                    }@else if (register.get("email")?.getError("email")) {
+                    <p class="p-0 m-0">{{"register.Enter Valid Email"|translate}}</p>
+                    }
+                    
+                   
+                </div> 
+            }
+            </div>
+            <div class="my-2">
+                 <label for="Password">{{"register.Password:"|translate}}</label>
+                 <div class="d-flex align-items-center justify-content-end">
+                 <input  [ngClass]="{
+                    'is-valid': !register.get('password')?.errors&&register.get('password')?.touched,
+                    'is-invalid':register.get('password')?.errors&&register.get('password')?.touched
+                }"
+                 
+                 formControlName="password" [type]="ShowPassword?'text':'password'"id="Password" class="form-control p-2 position-relative">
+                 <i (click)="ShowPassword=!ShowPassword" class="far fa-eye eye-show position-absolute pe-5 fs-5 cursor-pointer"></i>
+                </div>
+                 @if(register.get('password')?.errors&&(register.get('password')?.touched||register.get('password')?.dirty)){
+                 <div class="alert alert-danger">
+                    @if(register.get("password")?.getError("required")){
+                    <p class="p-0 m-0">{{"register.password is required"|translate}}</p>
+                    }@else if (register.get("password")?.getError("pattern")) {
+                    <p class="p-0 m-0">{{"register.password must start with upperCase then from 6 to more any chars"|translate}}</p>
+                    }  
+                </div> 
+            }
+            </div>
+            <div class="my-2">
+                <label for="rePassword">{{"register.rePassword:"|translate}}</label>
+                <div class="d-flex align-items-center justify-content-end">
+                    <input [ngClass]="{
+                        'is-valid': !register.getError('mismatch')&&register.get('rePassword')?.touched,
+                        'is-invalid':register.getError('mismatch')&&register.get('rePassword')?.touched
+                    }"
+                    
+                    formControlName="rePassword" [type]="ShowPasswordRe?'text':'password'"id="rePassword" class="form-control p-2 position-relative">
+                    <i (click)="ShowPasswordRe=!ShowPasswordRe" class="far fa-eye eye-show position-absolute pe-5 fs-5 cursor-pointer"></i>
+                   </div>
+                @if(register.getError('mismatch')&&(register.get('rePassword')?.touched||register.get('rePassword')?.dirty)) {
+                <div class="alert alert-danger">
+                   
+                    <p class="p-0 m-0">{{"register.Password confirmation is incorrect"|translate}}</p>
+                    
+                </div>
+            }
+            </div>
+            <div class="my-2">
+                <label for="Phone">{{"register.Phone:"|translate}}</label>
+                <input [ngClass]="{
+                    'is-valid': !register.get('phone')?.errors&&register.get('phone')?.touched,
+                    'is-invalid':register.get('phone')?.errors&&register.get('phone')?.touched
+                }"
+                formControlName="phone" type="tel"id="Phone" class="form-control p-2">
+                @if(register.get('phone')?.errors&&(register.get('phone')?.touched||register.get('phone')?.dirty)){
+                <div class="alert alert-danger">
+                    @if(register.get("phone")?.getError("required")){
+                    <p class="p-0 m-0">{{"register.phone is required"|translate}}</p>
+                    }@else if (register.get("phone")?.getError("pattern")) {
+                    <p class="p-0 m-0">{{"register.accept only egypt phone numbers"|translate}}</p>
+                    }  
+                </div>
+            }
+            </div>
+            <div class="my-2">
+                <button class="btn-main" [disabled]="register.invalid || isLoading" type="submit">{{"register.SIGN UP"|translate}}
+                     @if(isLoading){
+                    <span><i class="fas fa-spin fa-spinner"></i></span>
+                    }
+                </button>
+            </div>
+            @if(errMessage){
+            <div class="alert alert-danger">
+               <p class="p-0 m-0">{{errMessage}}</p>
+            </div>
+        }
+    </form>
+</div>
+</div>
+</section>

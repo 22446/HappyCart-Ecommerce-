@@ -1,0 +1,83 @@
+<section class="rounded-4 shadow pt-4 my-3 mx-auto">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-4 d-none  d-lg-flex align-items-center justify-content-center flex-column  bg-dark text-white ">
+            <h1 class="fw-bolder">{{"details.Personal Details"|translate}}</h1>
+        </div>
+<div class="col-lg-8 col-12">
+    <form [formGroup]="shippingAddress" class="p-3" (ngSubmit)="placeOrder()">
+        
+            <div class="my-2">
+                <label for="name">{{"details.Address Details:"|translate}}</label>
+                <input [ngClass]="{
+                    'is-valid': !shippingAddress.get('details')?.errors&&shippingAddress.get('details')?.touched,
+                    'is-invalid':shippingAddress.get('details')?.errors&&shippingAddress.get('details')?.touched
+                }"
+                
+                formControlName="details" type="text"id="details" class="form-control p-2">
+                @if(shippingAddress.get('details')?.errors&&shippingAddress.get('details')?.touched){
+                <div class="alert alert-danger">
+                    @if(shippingAddress.get("details")?.getError("required")){
+                    <p class="p-0 m-0">{{"details.details is required"|translate}}</p>
+                    }@else if (shippingAddress.get("details")?.getError("details")) {
+                    <p class="p-0 m-0">{{"details.Enter Valid details"|translate}}</p>
+                    }
+                    
+                   
+                </div> 
+            }
+            </div>
+            <div class="my-2">
+                 <label for="phone">{{"details.phone:"|translate}}</label>
+                 <div class="d-flex align-items-center justify-content-end">
+                 <input  [ngClass]="{
+                    'is-valid': !shippingAddress.get('phone')?.errors&&shippingAddress.get('phone')?.touched,
+                    'is-invalid':shippingAddress.get('phone')?.errors&&shippingAddress.get('phone')?.touched
+                }"
+                 
+                 formControlName="phone" type="text" id="phone" class="form-control p-2 ">
+                </div>
+                 @if(shippingAddress.get('phone')?.errors&&shippingAddress.get('phone')?.touched){
+                 <div class="alert alert-danger">
+                    @if(shippingAddress.get("phone")?.getError("required")){
+                    <p class="p-0 m-0">{{"details.phone is required"|translate}}</p>
+                    }
+                </div> 
+            }
+            </div>
+            <div class="my-2">
+                <label for="city">{{"details.City :"|translate}}</label>
+                <input [ngClass]="{
+                    'is-valid': !shippingAddress.get('city')?.errors&&shippingAddress.get('city')?.touched,
+                    'is-invalid':shippingAddress.get('city')?.errors&&shippingAddress.get('city')?.touched
+                }"
+                
+                formControlName="city" type="text"id="city" class="form-control p-2">
+                @if(shippingAddress.get('city')?.errors&&shippingAddress.get('city')?.touched){
+                <div class="alert alert-danger">
+                    @if(shippingAddress.get("city")?.getError("required")){
+                    <p class="p-0 m-0">{{"details.city is required"|translate}}</p>
+                    }
+                    
+                   
+                </div> 
+            }
+            </div>
+            
+            <div class="my-2">
+                
+                <button class="btn-main" type="submit">
+                   {{"details.Place Order"|translate}}
+                </button>
+                
+            </div>
+            @if(errMessage){
+            <div class="alert alert-danger">
+               <p class="p-0 m-0">{{errMessage}}</p>
+            </div>
+        }
+    </form>
+</div>
+    </div>
+</div>
+</section>

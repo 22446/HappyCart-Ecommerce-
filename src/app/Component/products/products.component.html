@@ -1,0 +1,33 @@
+<section class="pt-4">
+    <div class="container">
+      <div class="row rounded-3 my-3 gy-3">
+       @if(isRender){
+        <h1 class="fw-bold py-3">{{"header.All Products"|translate}}</h1>
+       }
+        @for (product of ProductAllData.slice(0,20);track product.id;) 
+        {
+          <div class="col-lg-3 col-md-6 col-12">
+              <div class="card product">
+                <div [routerLink]="['/details',product.id]">
+                  <img [src]="product.imageCover" class="w-100 card-img-top" [alt]="product.category.name">
+                  <div class="cart-title px-2">
+                  <h2 class="h5 text-main fw-bold">{{product.category.name}}</h2>
+                  <h3 class="h6">{{product.title.split(" ",2).join(" ")}}</h3>
+                  <div class="d-flex align-items-center justify-content-between">
+                      <span class="fw-bold fs-5">{{product.price}} EGP</span>
+                      <span class="fs-5"><i class="fa fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+                  </div>
+                  </div>
+                </div>
+                <div class="py-2 mx-2">
+                  <button class="btn btn-outline-dark SlidUP   w-100"(click)="AddToCartFunc(product._id)">{{"header.+Add To Card"|translate}}</button>
+                </div>
+              </div>
+          
+          </div>
+        }
+        
+        
+      </div>
+    </div>
+  </section>

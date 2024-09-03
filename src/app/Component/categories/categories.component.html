@@ -1,0 +1,24 @@
+@if(isReander){
+    <section  class="pt-4">
+        <div class="container">
+            <div class="row rounded-3 my-3 gy-3">
+                <h1 class="fw-bold py-3">{{"categ.All Category"|translate}} </h1>
+            
+             @for (Category of CategoryDataAll;track  Category._id;) 
+             {
+               <div class="col-lg-3 col-md-6 col-12">
+                   <div class="card product">
+                     <div [routerLink]="['/Categoriedetails',Category._id]" class="cursor-pointer">
+                       <img [src]="Category.image" class="w-100 card-img-top" style="height: 250px;" [alt]="Category.name">
+                       <div class="cart-title px-2">
+                       <h2 class="h5 text-main fw-bold">{{Category.name}}</h2>
+                       </div>
+                     </div>
+                   </div>
+               
+               </div>
+             }
+            </div>
+        </div>
+    </section>
+}

@@ -1,0 +1,39 @@
+<section class="py-5">
+    <div class="container">
+      @if(WishlistData.length!==0){
+      <h1 class="pt-5 fw-bolder ">{{"WishList.Your Wish List"|translate}} <img src="./assets/images/icons8-heart.gif" alt=""></h1>}
+      <div class="row rounded-3 my-3 gy-3">
+        @for (product of WishlistData;track product.id;) 
+        {
+          <div class="col-lg-3 col-md-6 col-12">
+              <div class="card product position-relative">  
+              <i (click)="RemoveFromWishList(product.id)"   class="fa-solid fa-heart-circle-xmark top-0 end-0 pe-2 pt-1 fs-2 cursor-pointer position-absolute"></i> 
+                <div [routerLink]="['/details',product.id]">
+                  <img [src]="product.imageCover" class="w-100 card-img-top" [alt]="product.category.name">
+                  <div class="cart-title px-2">
+                  <h2 class="h5 text-main fw-bold">{{product.category.name}}</h2>
+                  <h3 class="h6">{{product.title.split(" ",2).join(" ")}}</h3>
+                  <div class="d-flex align-items-center justify-content-between">
+                      <span class="fw-bold fs-5">{{product.price}} EGP</span>
+                      <span class="fs-5"><i class="fa fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+                  </div>
+                  </div>
+                </div>
+                <div class="py-2 mx-2">
+                  <button class="btn btn-outline-dark SlidUP  w-100" (click)="AddToCartFunc(product._id)">{{"header.+Add To Card"|translate}}</button>
+                </div>
+              </div>
+          
+          </div>
+        }@empty{
+            <div class="d-flex align-items-center justify-content-center text-center flex-column">
+              <img  src="./assets/images/empty.gif" alt="">
+               <h1 class="fw-bold text-center">{{"WishList.Your Wish List Is Empty"|translate}}<a routerLink="/home" class="link-info">{{"WishList.Add Now"|translate}}</a></h1>
+          </div>
+        }
+        
+        
+      </div>
+    </div>
+  </section>
+  

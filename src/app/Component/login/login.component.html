@@ -1,0 +1,75 @@
+<section class="rounded-4 shadow  my-3 mx-auto">
+    <div class="row">
+        <div class="col-lg-4 d-none  d-lg-flex align-items-center justify-content-center flex-column  bg-dark text-white ">
+            <h1 class="fw-bolder">{{"Login.shop with us."|translate}}</h1>
+            <h6 class="fw-light pt-3 pb-1" >{{"Login.Dont Have an account? Sign Up now."|translate}}</h6>
+           <button routerLink="/register" type="submit" class="btn btn-main"> <a class="nav-link btn btn-outlet-white cursor-pointer"  routerLinkActive="btn-main">{{"Login.SIGN UP"|translate}}</a></button>
+        </div>
+<div class="col-lg-8 col-12">
+    <h1 class="h2 my-2 text-center pt-2">{{"Login.LOGIN NOW"|translate}}</h1>
+    <form [formGroup]="login" class="p-3" (ngSubmit)="loginSubmit()">
+        
+            <div class="my-2">
+                <label for="name">{{"Login.email:"|translate}}</label>
+                <input [ngClass]="{
+                    'is-valid': !login.get('email')?.errors&&login.get('email')?.touched,
+                    'is-invalid':login.get('email')?.errors&&login.get('email')?.touched
+                }"
+                
+                formControlName="email" type="email"id="email" class="form-control p-2">
+                @if(login.get('email')?.errors&&login.get('email')?.touched){
+                <div class="alert alert-danger">
+                    @if(login.get("email")?.getError("required")){
+                    <p class="p-0 m-0">{{"Login.Email is required"|translate}}</p>
+                    }@else if (login.get("email")?.getError("email")) {
+                    <p class="p-0 m-0">{{"Login.Enter Valid Email"|translate}}</p>
+                    }
+                    
+                   
+                </div> 
+            }
+            </div>
+            <div class="my-2">
+                 <label for="Password">{{"Login.Password:"|translate}}</label>
+                 <div class="d-flex align-items-center justify-content-end">
+                 <input  [ngClass]="{
+                    'is-valid': !login.get('password')?.errors&&login.get('password')?.touched,
+                    'is-invalid':login.get('password')?.errors&&login.get('password')?.touched
+                }"
+                 
+                 formControlName="password" [type]="ShowPassword?'text':'password'"id="Password" class="form-control p-2 position-relative">
+                 <i (click)="ShowPassword=!ShowPassword" class="far fa-eye eye-show position-absolute pe-5 fs-5 cursor-pointer"></i>
+                </div>
+                 @if(login.get('password')?.errors&&login.get('password')?.touched){
+                 <div class="alert alert-danger">
+                    @if(login.get("password")?.getError("required")){
+                    <p class="p-0 m-0">{{"Login.password is required"|translate}}</p>
+                    }@else if (login.get("password")?.getError("pattern")) {
+                    <p class="p-0 m-0">{{"Login.password must start with upperCase then from 6 to more any chars"|translate}}</p>
+                    }  
+                </div> 
+            }
+            </div>
+         
+            
+            <div class="my-2">
+                <div class="my-2">
+                <a class="link-primary " routerLink="/forget">{{"Login.Forget Password"|translate}}</a>
+            </div>
+                <button class="btn-main" [disabled]="login.invalid || isLoading" type="submit">
+                    {{"Login.Login"|translate}}
+                     @if(isLoading){
+                    <span><i class="fas fa-spin fa-spinner"></i></span>
+                    }
+                </button>
+                
+            </div>
+            @if(errMessage){
+            <div class="alert alert-danger">
+               <p class="p-0 m-0">{{errMessage}}</p>
+            </div>
+        }
+    </form>
+</div>
+    </div>
+</section>

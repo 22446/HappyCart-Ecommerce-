@@ -1,0 +1,41 @@
+@if(isrender){<section>
+    <div class="container">
+    <div class="row align-items-center ">
+        <div class="col-md-3 col-12 my-4">
+           
+                <owl-carousel-o [options]="StaticDetOptionsCat">
+
+                    @for (item of DetailsData.images; track $index) {
+                      <ng-template carouselSlide>
+                        <img [src]="item" alt="picSlide" class="w-100">
+                      </ng-template>
+                    }
+                  </owl-carousel-o>
+        </div>
+        <div class="col-md-9 col-12">
+            <div class="px-2 my-3">
+                <h2 class="fw-bold text-main fw-bold">{{DetailsData.category.name}}</h2>
+                <h3>{{DetailsData.description.split(" ",7).join(" ")}}</h3>
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                    <span class="fw-bold fs-5">{{DetailsData.price}} EGP</span>
+                </div>
+                <div>
+                    @for (item of [1,2,3,4,5].slice(0,DetailsData.ratingsAverage); track $index) {
+
+                   <i class="fa fa-star rating-color fs-6"></i>
+                }
+
+                <span class="fw-bold">{{DetailsData.ratingsAverage}}</span>
+            </div>
+                    
+                </div>
+                <div class="py-2 my-2">
+                    <button class="btn btn-outline-dark   w-100"(click)="AddToCartFunc(DetailsData._id)">{{"header.+Add To Card"|translate}}</button>
+                  </div>
+                </div>
+        </div>
+    </div>
+</div>
+</section>}
+

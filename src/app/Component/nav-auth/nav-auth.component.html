@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex nowrap align-items-center" routerLink="home">
+        <div>
+        <img src="./assets/images/icons8-cartHead.gif" alt=""></div><div><span class="fw-bold">HappyCart</span></div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown ms-2">
+              <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{"nav.language"|translate}}
+              </a>
+              <ul class="dropdown-menu">
+                <li [class.bg-info]="_TranslateService.currentLang=='en'" (click)="_MyTranslateService.changeLang('en')" class="cursor-pointer"><a class="dropdown-item" >EN</a></li>
+                <li [class.bg-info]="_TranslateService.currentLang=='ar'" (click)="_MyTranslateService.changeLang('ar')" class="cursor-pointer"><a class="dropdown-item" >ع</a></li>
+              </ul>
+            </li>
+               <li class="nav-item">
+                <a class="nav-link cursor-pointer" routerLink="login" routerLinkActive="btn-main">
+                  {{"nav.Login"|translate}}
+                </a>
+               </li>
+               <li class="nav-item">
+                <a class="nav-link cursor-pointer" routerLink="register" routerLinkActive="btn-main">
+                  {{"nav.Register"|translate}}
+                </a>
+               </li>
+             
+          </ul>
+      </div>
+    </div>
+  </nav>
