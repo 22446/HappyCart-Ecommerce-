@@ -37,7 +37,7 @@
      }
       @for (product of ProductsData.slice(0,12)|search:text;track product._id;) 
       {
-        <div class="col-lg-3 col-md-6 col-12">
+        <div class="col-lg-3 col-md-4 col-6">
             <div class="card product position-relative">
               <span (click)="AddToWishList(product._id)">
                 <i [ngClass]="{
@@ -58,10 +58,8 @@
                     <span class="fw-bold fs-5">{{product.price}} EGP</span>
                   </div>
                   <div>
-                    @for(item of [1,2,3,4,5].slice(0,product.ratingsAverage);track $index)
-                    {
+                   
                        <i class="fa fa-star rating-color fs-5"></i>
-                    }
                     <span class="fw-bold fs-5">{{product.ratingsAverage}}</span>
                   </div>
                 </div>
