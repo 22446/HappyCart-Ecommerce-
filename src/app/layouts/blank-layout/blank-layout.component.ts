@@ -11,5 +11,4 @@ import { FooterComponent } from "../../Component/footer/footer.component";
   styleUrl: './blank-layout.component.scss'
 })
 export class BlankLayoutComponent {
-
 }

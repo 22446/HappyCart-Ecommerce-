@@ -30,11 +30,15 @@ export class CartComponent implements OnInit {
   })
  }
  CountSubmit(id:string|null,count:number):void{
+  if(count>=1){
   this._CartServices.UpdateQuantityCart(id,count).subscribe({
     next:(res)=>{
+      
       this.cartData=res.data
     }
+  
   })
+}
  }
  DeleteSpecificItem(id:string|null){
   this._CartServices.RemoveSpecificItemFromCart(id).subscribe({

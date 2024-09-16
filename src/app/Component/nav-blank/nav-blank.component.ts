@@ -13,6 +13,7 @@ import { CartService } from '../../Core/services/cart.service';
   styleUrl: './nav-blank.component.scss'
 })
 export class NavBlankComponent implements OnInit{
+ 
   public _AuthService=inject(AuthService)
   public _MyTranslateService=inject(MyTranslateService)
   public _TranslateService=inject(TranslateService)
