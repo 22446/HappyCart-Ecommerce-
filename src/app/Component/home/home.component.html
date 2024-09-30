@@ -37,7 +37,7 @@
      }
       @for (product of ProductsData.slice(0,12)|search:text;track product._id;) 
       {
-        <div class="col-lg-3 col-md-4 col-6">
+        <div class="col-lg-3 col-md-4 col-12 ">
             <div class="card product position-relative">
               <span (click)="AddToWishList(product._id)">
                 <i [ngClass]="{
