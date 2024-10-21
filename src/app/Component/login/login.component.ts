@@ -25,8 +25,8 @@ export class LoginComponent implements OnDestroy {
   
   login:FormGroup=this._FormBuilder.group({
    
-    email:[null,[Validators.required,Validators.email]],
-    password:[null,[Validators.required,Validators.pattern(/^[A-Z][a-z0-9]{6,}$/)]],
+    email:['Mazin.safwat3452@gmail.com',[Validators.required,Validators.email]],
+    password:['Mazinsaf',[Validators.required,Validators.pattern(/^[A-Z][a-z0-9]{6,}$/)]],
   
   })
 
